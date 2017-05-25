@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title></title>
+		 <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+		<div class="container" ng-controller="myController">
+		<b>Enter the Letter:-</b><input type="text" ng-model="letter" placeholder="Enter letter here">
+		<hr>			
+			<table class="table table-bordered">
+			    <thead>
+			      <tr>
+			        <th>No</th>
+			        <th>Name</th>
+			        <th>ModelNo</th>
+			        <th>Color</th>
+			        <th>Ram</th>
+			        <th>Storage</th>
+			        <th>Price</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr ng-repeat="product in productSer | startsWithLetter : letter">
+			        <td>{{$index + 1}}</td>
+			        <td>{{product.name}}</td>
+			        <td>{{product.modelNo}}</td>
+			        <td>{{product.color}}</td>
+			        <td>{{product.ram}}</td>
+			        <td>{{product.storage}}</td>
+			        <td>{{product.price}}</td>
+			      </tr>
+			    </tbody>
+			  </table>
+
+		</div>
+		<my-product-directive>   <!-- this is my element directive  -->
+			
+		</my-product-directive>
+
+
+<script src="angular.js" type="text/javascript"></script>
+<script src="controller/controller.js" type="text/javascript"></script>
+<script src="filter/filter.js" type="text/javascript"></script>
+<script src="services/service.js" type="text/javascript"></script>
+</body>
+</html>
